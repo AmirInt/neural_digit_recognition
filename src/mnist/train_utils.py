@@ -28,7 +28,7 @@ def batchify_data(x_data, y_data, batch_size):
 
 def compute_accuracy(predictions, y):
     """Computes the accuracy of predictions against the gold labels, y."""
-    return np.mean(np.equal(predictions.numpy(), y.numpy()))
+    return np.mean(np.equal(predictions.cpu().numpy(), y.cpu().numpy()))
 
 
 # Training Procedure
@@ -65,6 +65,9 @@ def run_epoch(data, model, optimizer):
     for batch in tqdm(data):
         # Grab x and y
         x, y = batch['x'], batch['y']
+
+        if torch.cuda.is_available():
+            x, y = x.to("cuda"), y.to("cuda")
 
         # Get output predictions
         out = model(x)

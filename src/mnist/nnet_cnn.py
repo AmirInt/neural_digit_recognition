@@ -1,19 +1,15 @@
 #! /usr/bin/env python
 
-import _pickle as c_pickle, gzip
 import numpy as np
 from tqdm import tqdm
 import torch
 import torch.autograd as autograd
 import torch.nn.functional as F
 import torch.nn as nn
-import sys
-sys.path.append("..")
-import utils
-from utils import *
-from train_utils import batchify_data, run_epoch, train_model, Flatten
+from src.utils import *
+from src.mnist.train_utils import batchify_data, run_epoch, train_model, Flatten
 
-def main():
+def run_nnet_cnn():
     # Load the dataset
     num_classes = 10
     X_train, y_train, X_test, y_test = get_MNIST_data()
@@ -46,7 +42,17 @@ def main():
               nn.Conv2d(1, 32, (3, 3)),
               nn.ReLU(),
               nn.MaxPool2d((2, 2)),
+              nn.Conv2d(32, 64, (3, 3)),
+              nn.ReLU(),
+              nn.MaxPool2d((2, 2)),
+              nn.Flatten(),
+              nn.Linear(1600, 128),
+              nn.Dropout(),
+              nn.Linear(128, num_classes)
             )
+
+    if torch.cuda.is_available():
+        model.to("cuda")
     ##################################
 
     train_model(train_batches, dev_batches, model, nesterov=True)
@@ -56,9 +62,3 @@ def main():
 
     print ("Loss on test set:"  + str(loss) + " Accuracy on test set: " + str(accuracy))
 
-
-if __name__ == '__main__':
-    # Specify seed for deterministic behavior, then shuffle. Do not change seed for official submissions to edx
-    np.random.seed(12321)  # for reproducibility
-    torch.manual_seed(12321)
-    main()
