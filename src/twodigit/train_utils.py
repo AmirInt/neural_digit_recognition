@@ -32,10 +32,10 @@ def batchify_data(x_data, y_data, batch_size):
 
 def compute_accuracy(predictions, y):
     """Computes the accuracy of predictions against the gold labels, y."""
-    return np.mean(np.equal(predictions.numpy(), y.numpy()))
+    return np.mean(np.equal(predictions.cpu().numpy(), y.cpu().numpy()))
 
 
-def train_model(train_data, dev_data, model, lr=0.01, momentum=0.9, nesterov=False, n_epochs=30):
+def train_model(train_data, dev_data, model, lr=0.01, momentum=0.9, nesterov=False, n_epochs=20):
     """Train a model for N epochs given data and hyper-params."""
     # We optimize with SGD
     optimizer = torch.optim.SGD(model.parameters(), lr=lr, momentum=momentum, nesterov=nesterov)
@@ -70,6 +70,9 @@ def run_epoch(data, model, optimizer):
     for batch in tqdm(data):
         # Grab x and y
         x, y = batch['x'], batch['y']
+
+        if torch.cuda.is_available():
+            x, y = x.to("cuda"), y.to("cuda")
 
         # Get output predictions for both the upper and lower numbers
         out1, out2 = model(x)
