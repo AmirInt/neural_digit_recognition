@@ -23,6 +23,7 @@
   </PropertyGroup>
   <ItemGroup>
     <Compile Include="main.py" />
+    <Compile Include="src\mnist\__init__.py" />
     <Compile Include="src\mnist\nnet_cnn.py" />
     <Compile Include="src\mnist\nnet_fc.py" />
     <Compile Include="src\mnist\train_utils.py" />
@@ -33,6 +34,7 @@
     <Compile Include="src\twodigit\mlp.py" />
     <Compile Include="src\twodigit\train_utils.py" />
     <Compile Include="src\twodigit\utils_multiMNIST.py" />
+    <Compile Include="src\utils.py" />
   </ItemGroup>
   <ItemGroup>
     <InterpreterReference Include="Global|VisualStudio|env (Python 3.11 (64-bit))" />
