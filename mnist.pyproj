@@ -48,6 +48,8 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include=".gitignore" />
+    <Content Include="README.md" />
+    <Content Include="requirements.txt" />
     <Content Include="src\twodigit\sample_images\img20000.jpg" />
     <Content Include="src\twodigit\sample_images\img20001.jpg" />
     <Content Include="src\twodigit\sample_images\img20002.jpg" />
