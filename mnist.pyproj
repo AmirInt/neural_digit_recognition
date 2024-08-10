@@ -1,0 +1,158 @@
+<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003" ToolsVersion="4.0">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>7993dfc0-632f-4221-8aa4-017c3af91e9e</ProjectGuid>
+    <ProjectHome>.</ProjectHome>
+    <StartupFile>mnist.py</StartupFile>
+    <SearchPath>
+    </SearchPath>
+    <WorkingDirectory>.</WorkingDirectory>
+    <OutputPath>.</OutputPath>
+    <Name>mnist</Name>
+    <RootNamespace>mnist</RootNamespace>
+    <InterpreterId>Global|VisualStudio|env (Python 3.11 (64-bit))</InterpreterId>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)' == 'Debug' ">
+    <DebugSymbols>true</DebugSymbols>
+    <EnableUnmanagedDebugging>false</EnableUnmanagedDebugging>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)' == 'Release' ">
+    <DebugSymbols>true</DebugSymbols>
+    <EnableUnmanagedDebugging>false</EnableUnmanagedDebugging>
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Include="mnist.py" />
+    <Compile Include="src\mnist\nnet_cnn.py" />
+    <Compile Include="src\mnist\nnet_fc.py" />
+    <Compile Include="src\mnist\train_utils.py" />
+    <Compile Include="src\nn\neural_nets.py" />
+    <Compile Include="src\twodigit\conv.py" />
+    <Compile Include="src\twodigit\mlp.py" />
+    <Compile Include="src\twodigit\train_utils.py" />
+    <Compile Include="src\twodigit\utils_multiMNIST.py" />
+  </ItemGroup>
+  <ItemGroup>
+    <InterpreterReference Include="Global|VisualStudio|env (Python 3.11 (64-bit))" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="src\" />
+    <Folder Include="src\mnist\" />
+    <Folder Include="src\nn\" />
+    <Folder Include="src\twodigit\" />
+    <Folder Include="src\twodigit\sample_images\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="src\twodigit\.DS_Store" />
+    <Content Include="src\twodigit\._.DS_Store" />
+    <Content Include="src\twodigit\sample_images\img20000.jpg" />
+    <Content Include="src\twodigit\sample_images\img20001.jpg" />
+    <Content Include="src\twodigit\sample_images\img20002.jpg" />
+    <Content Include="src\twodigit\sample_images\img20003.jpg" />
+    <Content Include="src\twodigit\sample_images\img20004.jpg" />
+    <Content Include="src\twodigit\sample_images\img20005.jpg" />
+    <Content Include="src\twodigit\sample_images\img20006.jpg" />
+    <Content Include="src\twodigit\sample_images\img20007.jpg" />
+    <Content Include="src\twodigit\sample_images\img20008.jpg" />
+    <Content Include="src\twodigit\sample_images\img20009.jpg" />
+    <Content Include="src\twodigit\sample_images\img20010.jpg" />
+    <Content Include="src\twodigit\sample_images\img20011.jpg" />
+    <Content Include="src\twodigit\sample_images\img20012.jpg" />
+    <Content Include="src\twodigit\sample_images\img20013.jpg" />
+    <Content Include="src\twodigit\sample_images\img20014.jpg" />
+    <Content Include="src\twodigit\sample_images\img20015.jpg" />
+    <Content Include="src\twodigit\sample_images\img20016.jpg" />
+    <Content Include="src\twodigit\sample_images\img20017.jpg" />
+    <Content Include="src\twodigit\sample_images\img20018.jpg" />
+    <Content Include="src\twodigit\sample_images\img20019.jpg" />
+    <Content Include="src\twodigit\sample_images\img20020.jpg" />
+    <Content Include="src\twodigit\sample_images\img20021.jpg" />
+    <Content Include="src\twodigit\sample_images\img20022.jpg" />
+    <Content Include="src\twodigit\sample_images\img20023.jpg" />
+    <Content Include="src\twodigit\sample_images\img20024.jpg" />
+    <Content Include="src\twodigit\sample_images\img20025.jpg" />
+    <Content Include="src\twodigit\sample_images\img20026.jpg" />
+    <Content Include="src\twodigit\sample_images\img20027.jpg" />
+    <Content Include="src\twodigit\sample_images\img20028.jpg" />
+    <Content Include="src\twodigit\sample_images\img20029.jpg" />
+    <Content Include="src\twodigit\sample_images\img20030.jpg" />
+    <Content Include="src\twodigit\sample_images\img20031.jpg" />
+    <Content Include="src\twodigit\sample_images\img20032.jpg" />
+    <Content Include="src\twodigit\sample_images\img20033.jpg" />
+    <Content Include="src\twodigit\sample_images\img20034.jpg" />
+    <Content Include="src\twodigit\sample_images\img20035.jpg" />
+    <Content Include="src\twodigit\sample_images\img20036.jpg" />
+    <Content Include="src\twodigit\sample_images\img20037.jpg" />
+    <Content Include="src\twodigit\sample_images\img20038.jpg" />
+    <Content Include="src\twodigit\sample_images\img20039.jpg" />
+    <Content Include="src\twodigit\sample_images\img20040.jpg" />
+    <Content Include="src\twodigit\sample_images\img20041.jpg" />
+    <Content Include="src\twodigit\sample_images\img20042.jpg" />
+    <Content Include="src\twodigit\sample_images\img20043.jpg" />
+    <Content Include="src\twodigit\sample_images\img20044.jpg" />
+    <Content Include="src\twodigit\sample_images\img20045.jpg" />
+    <Content Include="src\twodigit\sample_images\img20046.jpg" />
+    <Content Include="src\twodigit\sample_images\img20047.jpg" />
+    <Content Include="src\twodigit\sample_images\img20048.jpg" />
+    <Content Include="src\twodigit\sample_images\img20049.jpg" />
+    <Content Include="src\twodigit\sample_images\img20050.jpg" />
+    <Content Include="src\twodigit\sample_images\img20051.jpg" />
+    <Content Include="src\twodigit\sample_images\img20052.jpg" />
+    <Content Include="src\twodigit\sample_images\img20053.jpg" />
+    <Content Include="src\twodigit\sample_images\img20054.jpg" />
+    <Content Include="src\twodigit\sample_images\img20055.jpg" />
+    <Content Include="src\twodigit\sample_images\img20056.jpg" />
+    <Content Include="src\twodigit\sample_images\img20057.jpg" />
+    <Content Include="src\twodigit\sample_images\img20058.jpg" />
+    <Content Include="src\twodigit\sample_images\img20059.jpg" />
+    <Content Include="src\twodigit\sample_images\img20060.jpg" />
+    <Content Include="src\twodigit\sample_images\img20061.jpg" />
+    <Content Include="src\twodigit\sample_images\img20062.jpg" />
+    <Content Include="src\twodigit\sample_images\img20063.jpg" />
+    <Content Include="src\twodigit\sample_images\img20064.jpg" />
+    <Content Include="src\twodigit\sample_images\img20065.jpg" />
+    <Content Include="src\twodigit\sample_images\img20066.jpg" />
+    <Content Include="src\twodigit\sample_images\img20067.jpg" />
+    <Content Include="src\twodigit\sample_images\img20068.jpg" />
+    <Content Include="src\twodigit\sample_images\img20069.jpg" />
+    <Content Include="src\twodigit\sample_images\img20070.jpg" />
+    <Content Include="src\twodigit\sample_images\img20071.jpg" />
+    <Content Include="src\twodigit\sample_images\img20072.jpg" />
+    <Content Include="src\twodigit\sample_images\img20073.jpg" />
+    <Content Include="src\twodigit\sample_images\img20074.jpg" />
+    <Content Include="src\twodigit\sample_images\img20075.jpg" />
+    <Content Include="src\twodigit\sample_images\img20076.jpg" />
+    <Content Include="src\twodigit\sample_images\img20077.jpg" />
+    <Content Include="src\twodigit\sample_images\img20078.jpg" />
+    <Content Include="src\twodigit\sample_images\img20079.jpg" />
+    <Content Include="src\twodigit\sample_images\img20080.jpg" />
+    <Content Include="src\twodigit\sample_images\img20081.jpg" />
+    <Content Include="src\twodigit\sample_images\img20082.jpg" />
+    <Content Include="src\twodigit\sample_images\img20083.jpg" />
+    <Content Include="src\twodigit\sample_images\img20084.jpg" />
+    <Content Include="src\twodigit\sample_images\img20085.jpg" />
+    <Content Include="src\twodigit\sample_images\img20086.jpg" />
+    <Content Include="src\twodigit\sample_images\img20087.jpg" />
+    <Content Include="src\twodigit\sample_images\img20088.jpg" />
+    <Content Include="src\twodigit\sample_images\img20089.jpg" />
+    <Content Include="src\twodigit\sample_images\img20090.jpg" />
+    <Content Include="src\twodigit\sample_images\img20091.jpg" />
+    <Content Include="src\twodigit\sample_images\img20092.jpg" />
+    <Content Include="src\twodigit\sample_images\img20093.jpg" />
+    <Content Include="src\twodigit\sample_images\img20094.jpg" />
+    <Content Include="src\twodigit\sample_images\img20095.jpg" />
+    <Content Include="src\twodigit\sample_images\img20096.jpg" />
+    <Content Include="src\twodigit\sample_images\img20097.jpg" />
+    <Content Include="src\twodigit\sample_images\img20098.jpg" />
+    <Content Include="src\twodigit\sample_images\img20099.jpg" />
+  </ItemGroup>
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\Python Tools\Microsoft.PythonTools.targets" />
+  <!-- Uncomment the CoreCompile target to enable the Build command in
+       Visual Studio and specify your pre- and post-build commands in
+       the BeforeBuild and AfterBuild targets below. -->
+  <!--<Target Name="CoreCompile" />-->
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+</Project>
