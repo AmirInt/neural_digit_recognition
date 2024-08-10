@@ -4,7 +4,7 @@
     <SchemaVersion>2.0</SchemaVersion>
     <ProjectGuid>7993dfc0-632f-4221-8aa4-017c3af91e9e</ProjectGuid>
     <ProjectHome>.</ProjectHome>
-    <StartupFile>mnist.py</StartupFile>
+    <StartupFile>main.py</StartupFile>
     <SearchPath>
     </SearchPath>
     <WorkingDirectory>.</WorkingDirectory>
@@ -22,10 +22,12 @@
     <EnableUnmanagedDebugging>false</EnableUnmanagedDebugging>
   </PropertyGroup>
   <ItemGroup>
-    <Compile Include="mnist.py" />
+    <Compile Include="main.py" />
     <Compile Include="src\mnist\nnet_cnn.py" />
     <Compile Include="src\mnist\nnet_fc.py" />
     <Compile Include="src\mnist\train_utils.py" />
+    <Compile Include="src\__init__.py" />
+    <Compile Include="src\nn\__init__.py" />
     <Compile Include="src\nn\neural_nets.py" />
     <Compile Include="src\twodigit\conv.py" />
     <Compile Include="src\twodigit\mlp.py" />
@@ -43,6 +45,7 @@
     <Folder Include="src\twodigit\sample_images\" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include=".gitignore" />
     <Content Include="src\twodigit\.DS_Store" />
     <Content Include="src\twodigit\._.DS_Store" />
     <Content Include="src\twodigit\sample_images\img20000.jpg" />

@@ -15,13 +15,13 @@ import math
 
 def rectified_linear_unit(x):
     """Returns the ReLU of x, or the maximum between 0 and x."""
-    return np.max(0, x)
+    return max(0., x)
 
 def rectified_linear_unit_derivative(x):
     """Returns the derivative of ReLU."""
     if x > 0:
-        return 1
-    return 0
+        return 1.
+    return 0.
 
 def output_layer_activation(x):
     """Linear function, returns input as is."""
@@ -29,7 +29,7 @@ def output_layer_activation(x):
 
 def output_layer_activation_derivative(x):
     """ Returns the derivative of a linear function: 1."""
-    return 1
+    return 1.
 
 class NeuralNetwork():
     """
@@ -52,42 +52,51 @@ class NeuralNetwork():
         self.testing_points = [(1,1), (2,2), (3,3), (5,5), (10,10)]
 
     def train(self, x1, x2, y):
+        v_relu = np.vectorize(rectified_linear_unit)
+        v_identity = np.vectorize(output_layer_activation)
+        v_relu_der = np.vectorize(rectified_linear_unit_derivative)
+        v_identity_der = np.vectorize(output_layer_activation_derivative)
 
         ### Forward propagation ###
         input_values = np.matrix([[x1],[x2]]) # 2 by 1
 
         # Calculate the input and activation of the hidden layer
-        hidden_layer_weighted_input = # TODO (3 by 1 matrix)
-        hidden_layer_activation = # TODO (3 by 1 matrix)
+        hidden_layer_weighted_input = self.input_to_hidden_weights @ input_values + self.biases
+        hidden_layer_activation = v_relu(hidden_layer_weighted_input) # No Biases
 
-        output =  # TODO
-        activated_output = # TODO
+        output = self.hidden_to_output_weights @ hidden_layer_activation
+        activated_output = v_identity(output)
 
         ### Backpropagation ###
 
         # Compute gradients
-        output_layer_error = # TODO
-        hidden_layer_error = # TODO (3 by 1 matrix)
-
-        bias_gradients = # TODO
-        hidden_to_output_weight_gradients = # TODO
-        input_to_hidden_weight_gradients = # TODO
+        output_layer_error = (activated_output - y) * v_identity_der(output)
+        hidden_layer_error = np.multiply(
+            output_layer_error.item() * self.hidden_to_output_weights,
+            v_relu_der(hidden_layer_weighted_input).T)
+        
+        bias_gradients = hidden_layer_error.T
+        hidden_to_output_weight_gradients = output_layer_error.item() * hidden_layer_activation.T
+        input_to_hidden_weight_gradients = (input_values @ hidden_layer_error).T
 
         # Use gradients to adjust weights and biases using gradient descent
-        self.biases = # TODO
-        self.input_to_hidden_weights = # TODO
-        self.hidden_to_output_weights = # TODO
+        self.biases -= self.learning_rate * bias_gradients
+        self.input_to_hidden_weights -= self.learning_rate * input_to_hidden_weight_gradients
+        self.hidden_to_output_weights -= self.learning_rate * hidden_to_output_weight_gradients
 
     def predict(self, x1, x2):
 
         input_values = np.matrix([[x1],[x2]])
 
         # Compute output for a single input(should be same as the forward propagation in training)
-        hidden_layer_weighted_input = # TODO
-        hidden_layer_activation = # TODO
-        output = # TODO
-        activated_output = # TODO
+        hidden_layer_weighted_input = self.input_to_hidden_weights @ input_values
+        v_relu = np.vectorize(rectified_linear_unit)
+        hidden_layer_activation = v_relu(hidden_layer_weighted_input + self.biases)
 
+        output = self.hidden_to_output_weights @ hidden_layer_activation
+        v_identity = np.vectorize(output_layer_activation)
+        activated_output = v_identity(output)
+        
         return activated_output.item()
 
     # Run this to train your neural network once you complete the train method
@@ -107,10 +116,3 @@ class NeuralNetwork():
             else:
                 print("Point ", point[0], point[1], " failed to be predicted correctly.")
                 return
-
-x = NeuralNetwork()
-
-x.train_neural_network()
-
-# UNCOMMENT THE LINE BELOW TO TEST YOUR NEURAL NETWORK
-# x.test_neural_network()
